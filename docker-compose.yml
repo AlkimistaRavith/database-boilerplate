@@ -6,7 +6,6 @@ services:
       - POSTGRES_USER=usuario
       - POSTGRES_PASSWORD=1234
       - POSTGRES_DB=Primer_DB
-      - POSTGRES_DB=Tienda
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:

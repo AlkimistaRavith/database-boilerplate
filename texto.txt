@@ -1,0 +1,54 @@
+docker-compose up
+
+docker-compose exec "NOMBRE BASE DE DATOS" ls
+#lista los archivos dentro del contenedor de la base de datos.
+
+docker-compose exec "NOMBBRE BASE DE DATOS" psql 
+#ingresa a ese archivo dentro del contenedor de postgres
+
+docker-compose exec database psql -U usuario -d Primer_DB
+#ingresando a database -> psql | ingresando al usuario: usuario y base de datos Primer_DB
+
+Dentro de psql:
+ \l
+#Lista de las base de datos.
+
+ CREATE DATABASE "nombre";
+#Para crear una base de datos
+
+ \c "NOMBRE DB";
+#Para ingresar a la BD
+
+ CREATE TABLE "nombre tabla" (col1 tipo_dato(N°), col2 tipo_dato(N°));
+#Para crear tabla, donde:
+    - tipo_dato: varchar(texto) | SMALLINT(dato de 2 bits con rango) | 
+    - N° = cantidad caracteres permitidos en el dato
+
+ INSERT INTO "nombre tabla" (col1, col2, col3, ...) values (valor1, valor2, valor3, ...) , (valor1, valor2, valor3, ...) , ...;
+#para ingresar datos a la tabla.
+
+ select * from "tabla";
+#Seleccina todos los datos de la tabla.
+
+ select * from "tabla" order by "colX" desc limit Y
+#order by: ordenar columna X
+#desc = descendente
+#asc = ascendente
+#limit = muestra una cantidad Y de datos.
+
+ select col1, col3, col2 from "tabla" where colX < 6 order by colY asc;
+#selecciona las columnas en el orden que se quiera.
+#where: para inicial condicionante.
+
+
+ \q
+#para salir
+
+ order by LENGTH(col)
+#Para ordenar por largo.
+
+ select *, LENGTH(colX) from "tabla";
+#Muestra todas las columnas (*), y agrega una columna con el largo de la columna X
+
+ CREATE table matriculas(monto varchar(50), estado boolean, cliente_rut int references clientes(rut));
+#references "tabla"(columna):  clave foránea para traer el dato.

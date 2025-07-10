@@ -40,7 +40,6 @@ Dentro de psql:
 #selecciona las columnas en el orden que se quiera.
 #where: para inicial condicionante.
 
-
  \q
 #para salir
 
@@ -52,3 +51,24 @@ Dentro de psql:
 
  CREATE table matriculas(monto varchar(50), estado boolean, cliente_rut int references clientes(rut));
 #references "tabla"(columna):  clave foránea para traer el dato.
+
+ ALTER TABLE clientes ALTER COLUMN email SET NOT NULL;
+ALTER TABLE: para cambiar la configuracion de la tabla de "nombre"
+ALTER COLUMN: para cambiar la config. de la columna.
+SET: definir que se setea o cambia.
+
+ UPDATE clientes SET fecha = '2024-01-01' WHERE fecha IS NULL;
+UPDATE: para cambiar los datos de "tabla".
+SET: definir que se setea o cambia.
+
+UPDATE clientes SET fecha = COALESCE(fecha, '2024-01-01');
+COALESCE: para asignar a la (columna, un 'dato')
+
+DROP table...;
+DROP: es para liberar. eliminar y borrar todo (puede borrar tabla sin regreso).
+
+DELETE
+PAra borrar contenido.
+
+Truncate:
+Elimina registros y sus referenciables en otras tablas.

@@ -72,3 +72,5 @@ PAra borrar contenido.
 
 Truncate:
 Elimina registros y sus referenciables en otras tablas.
+
+ docker cp "archivo.csv" pgadmin_container:/var/lib/pgadmin/storage/jonhdoe_gmail.com
